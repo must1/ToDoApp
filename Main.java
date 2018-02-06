@@ -3,24 +3,28 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+
         Scanner input = new Scanner(System.in);
         AccountMaker accountMaker = new AccountMaker();
         AccountLogger accountLogger = new AccountLogger();
+
         System.out.println("What do you wanna to do?");
         System.out.println("1. Add Account 2. Log into my account");
-        boolean isTrue = true;
-        while (isTrue) {
+
+        boolean loopIsTrue = true;
+        while (loopIsTrue) {
             try {
                 int option = input.nextInt();
                 if (option >= 1 && option <= 2) {
                     switch (option) {
                         case 1:
+                            accountMaker.inputLoginAndPassword();
                             accountMaker.createAccount();
-                            isTrue = false;
+                            loopIsTrue = false;
                             System.out.println("Now let's log into you account.");
                         case 2:
-                            accountLogger.logIntoAccount();
-                            isTrue = false;
+                            accountLogger.inputLoginAndPassword();
+                            accountLogger.checkIfLoginDataIsCorrect();
                             break;
                     }
                 }
@@ -33,5 +37,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        System.out.println("test");
     }
 }
