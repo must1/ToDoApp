@@ -8,10 +8,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         AccountMaker accountMaker = new AccountMaker();
         AccountLogger accountLogger = new AccountLogger();
-        //I'VE WRITTEN IT JUST FOR CHECK:
         HashMap<String, String> loginDetails = accountMaker.getLoginDetails();
-        loginDetails.put("lala","papa");
-        ///
         System.out.println("What do you wanna to do?");
         System.out.println("1. Add Account 2. Log into my account");
 
@@ -28,8 +25,8 @@ public class Main {
                         case 2:
                             while (loopIsTrue) {
                                 accountLogger.inputLoginAndPassword();
-                                if (!accountLogger.checkIfLoginDataIsIncorrect()) {
-                                    loopIsTrue = accountLogger.checkIfLoginDataIsIncorrect();
+                                if (!accountLogger.checkIfLoginDataIsIncorrect(loginDetails)) {
+                                    loopIsTrue = accountLogger.checkIfLoginDataIsIncorrect(loginDetails);
                                 }
                             }
                             break;
@@ -44,5 +41,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
+        System.out.println("test");
     }
 }

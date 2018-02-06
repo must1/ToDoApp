@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class AccountLogger {
     private AccountMaker accountMaker = new AccountMaker();
     private Scanner input = new Scanner(System.in);
-    private HashMap<String, String> loginDetails = accountMaker.getLoginDetails();
+    HashMap<String, String> loginDetails = accountMaker.getLoginDetails();
     private String login, password;
 
 
@@ -17,12 +17,10 @@ public class AccountLogger {
         password = input.next();
     }
 
-    boolean checkIfLoginDataIsIncorrect() {
-        //I'VE WRITTEN IT JUST FOR CHECK
-        System.out.println(login);
-        System.out.println(password);
-        ///
-        if (loginDetails.containsKey(login) && loginDetails.get(login).equals(password)) {
+    boolean checkIfLoginDataIsIncorrect(HashMap<String, String> loginDetails) {
+        System.out.println("You have entered login = "+login);
+        System.out.println("You have entered password = "+password);
+        if (this.loginDetails.containsKey(login) && this.loginDetails.get(login).equals(password)) {
             System.out.println("You've logged in.");
             return false;
         }
