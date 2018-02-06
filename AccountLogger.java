@@ -8,6 +8,7 @@ public class AccountLogger {
     private String login, password;
 
 
+
     void inputLoginAndPassword() {
         System.out.println("Input your login");
         login = input.next();
@@ -17,6 +18,10 @@ public class AccountLogger {
     }
 
     boolean checkIfLoginDataIsIncorrect() {
+        //I'VE WRITTEN IT JUST FOR CHECK
+        System.out.println(login);
+        System.out.println(password);
+        ///
         if (loginDetails.containsKey(login) && loginDetails.get(login).equals(password)) {
             System.out.println("You've logged in.");
             return false;

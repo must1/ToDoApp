@@ -1,3 +1,4 @@
+import java.util.HashMap;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -7,7 +8,10 @@ public class Main {
         Scanner input = new Scanner(System.in);
         AccountMaker accountMaker = new AccountMaker();
         AccountLogger accountLogger = new AccountLogger();
-
+        //I'VE WRITTEN IT JUST FOR CHECK:
+        HashMap<String, String> loginDetails = accountMaker.getLoginDetails();
+        loginDetails.put("lala","papa");
+        ///
         System.out.println("What do you wanna to do?");
         System.out.println("1. Add Account 2. Log into my account");
 
@@ -25,9 +29,7 @@ public class Main {
                             while (loopIsTrue) {
                                 accountLogger.inputLoginAndPassword();
                                 if (!accountLogger.checkIfLoginDataIsIncorrect()) {
-                                    loopIsTrue = false;
-                                } else {
-                                    loopIsTrue = true;
+                                    loopIsTrue = accountLogger.checkIfLoginDataIsIncorrect();
                                 }
                             }
                             break;
