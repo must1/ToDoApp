@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class AccountLogger {
     private AccountMaker accountMaker = new AccountMaker();
     private Scanner input = new Scanner(System.in);
-    private boolean loopIsTrue = true;
     private HashMap<String, String> loginDetails = accountMaker.getLoginDetails();
     private String login, password;
 
@@ -17,15 +16,13 @@ public class AccountLogger {
         password = input.next();
     }
 
-    void checkIfLoginDataIsCorrect() {
-        while (loopIsTrue) {
-            if (loginDetails.containsKey(login)
-                    && loginDetails.get(password).equals(password)) {
-                loopIsTrue = false;
-            } else {
-                System.err.println("You've inputed bad login or password!");
-                loopIsTrue = true;
-            }
+    boolean checkIfLoginDataIsIncorrect() {
+        if (loginDetails.containsKey(login) && loginDetails.get(login).equals(password)) {
+            System.out.println("You've logged in.");
+            return false;
         }
+        else
+            System.err.println("Bad login or password");
+        return true;
     }
 }

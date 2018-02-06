@@ -23,8 +23,15 @@ public class Main {
                             loopIsTrue = false;
                             System.out.println("Now let's log into you account.");
                         case 2:
-                            accountLogger.inputLoginAndPassword();
-                            accountLogger.checkIfLoginDataIsCorrect();
+                            loopIsTrue = true;
+                            while (loopIsTrue) {
+                                accountLogger.inputLoginAndPassword();
+                                if (!accountLogger.checkIfLoginDataIsIncorrect()) {
+                                    loopIsTrue = false;
+                                } else {
+                                    loopIsTrue = true;
+                                }
+                            }
                             break;
                     }
                 }
@@ -37,6 +44,5 @@ public class Main {
                 e.printStackTrace();
             }
         }
-        System.out.println("test");
     }
 }
