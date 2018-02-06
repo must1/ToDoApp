@@ -17,10 +17,15 @@ public class AccountLogger {
         password = input.next();
     }
 
-    boolean checkIfLoginDataIsIncorrect(HashMap<String, String> loginDetails) {
-        System.out.println("You have entered login = "+login);
-        System.out.println("You have entered password = "+password);
-        if (this.loginDetails.containsKey(login) && this.loginDetails.get(login).equals(password)) {
+    boolean checkIfLoginDataIsIncorrect(HashMap<String, String> loginDetails2) {
+       
+        System.out.println(login);
+        System.out.println(password);
+        // Assinging loginDetails = loginDetails Hashmap from Main Cls. 
+        // This is becuase the Hashmap in two classes are different. Even you have same name, they belong to different classes. 
+        //So object memory allocations and elements are not same. Learn more on scope, instances and passing arguments in java.
+        loginDetails = loginDetails2;
+        if (loginDetails.containsKey(login) && loginDetails.get(login).equals(password)) {
             System.out.println("You've logged in.");
             return false;
         }
