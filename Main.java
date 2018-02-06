@@ -20,10 +20,8 @@ public class Main {
                         case 1:
                             accountMaker.inputLoginAndPassword();
                             accountMaker.createAccount();
-                            loopIsTrue = false;
                             System.out.println("Now let's log into you account.");
                         case 2:
-                            loopIsTrue = true;
                             while (loopIsTrue) {
                                 accountLogger.inputLoginAndPassword();
                                 if (!accountLogger.checkIfLoginDataIsIncorrect()) {
