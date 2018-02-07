@@ -1,4 +1,3 @@
-import java.util.HashMap;
 import java.util.Scanner;
 
 public class AccountLogger {
@@ -7,10 +6,10 @@ public class AccountLogger {
     private Scanner input = new Scanner(System.in);
     private String login, password;
 
-    public AccountLogger(AccountMaker accountMaker) {
+    AccountLogger(AccountMaker accountMaker) {
         this.accountMaker = accountMaker;
     }
-    
+
     void inputLoginAndPassword() {
         System.out.println("Input your login");
         login = input.next();
@@ -19,7 +18,7 @@ public class AccountLogger {
         password = input.next();
     }
 
-    boolean checkIfLoginDataIsIncorrect() {
+    boolean isLoginDataIncorrect() {
         if (accountMaker.getLoginDetails().containsKey(login) && accountMaker.getLoginDetails().get(login).equals(password)) {
             System.out.println("You've logged in.");
             return false;
