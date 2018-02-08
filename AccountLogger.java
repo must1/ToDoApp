@@ -27,7 +27,7 @@ public class AccountLogger {
                 System.out.println("You've logged in.");
                 return false;
             } else {
-                System.out.println("lala");
+                System.out.println("Bad login or password");
             }
         } catch (NullPointerException e) {
             System.out.println("Bad login or password");
