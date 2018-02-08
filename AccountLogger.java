@@ -5,6 +5,8 @@ public class AccountLogger {
     private AccountMaker accountMaker;
     private Scanner input = new Scanner(System.in);
     private String login, password;
+    User user;
+
 
     AccountLogger(AccountMaker accountMaker) {
         this.accountMaker = accountMaker;
@@ -19,11 +21,19 @@ public class AccountLogger {
     }
 
     boolean isLoginDataIncorrect() {
-        if (accountMaker.getLoginDetails().containsKey(login) && accountMaker.getLoginDetails().get(login).equals(password)) {
-            System.out.println("You've logged in.");
-            return false;
-        } else
-            System.err.println("Bad login or password");
+        user = accountMaker.getLoginDetails().get(login);
+        try {
+            if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+                System.out.println("You've logged in.");
+                return false;
+            } else {
+                System.out.println("lala");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Bad login or password");
+        }
+
+
         return true;
     }
 }

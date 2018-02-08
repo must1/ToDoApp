@@ -9,7 +9,7 @@ public class ToDoEngine {
     private AccountLogger accountLogger = new AccountLogger(accountMaker);
     private boolean loopIsTrue = true;
 
-    public void startToDoApp() {
+    void startToDoApp() {
 
         System.out.println("What do you wanna to do?");
         System.out.println("1. Add Account 2. Log into my account");
@@ -39,7 +39,7 @@ public class ToDoEngine {
                     while (loopIsTrue) {
                         accountLogger.inputLoginAndPassword();
                         if (!accountLogger.isLoginDataIncorrect()) {
-                            loopIsTrue = accountLogger.isLoginDataIncorrect();
+                            loopIsTrue = false;
                         }
                     }
                     break;
