@@ -32,8 +32,6 @@ public class AccountLogger {
         } catch (NullPointerException e) {
             System.out.println("Bad login or password");
         }
-
-
         return true;
     }
 }
