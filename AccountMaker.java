@@ -1,3 +1,4 @@
+
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -21,7 +22,6 @@ public class AccountMaker {
         loginDetails.put(login, newUser);
         System.out.println("Account has been created successfully");
         Thread.sleep(2000);
-
     }
 
     HashMap<String, User> getLoginDetails() {

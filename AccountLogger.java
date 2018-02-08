@@ -1,3 +1,4 @@
+
 import java.util.Scanner;
 
 public class AccountLogger {
@@ -5,12 +6,12 @@ public class AccountLogger {
     private AccountMaker accountMaker;
     private Scanner input = new Scanner(System.in);
     private String login, password;
-    User user;
 
 
     AccountLogger(AccountMaker accountMaker) {
         this.accountMaker = accountMaker;
     }
+
 
     void inputLoginAndPassword() {
         System.out.println("Input your login");
@@ -21,9 +22,9 @@ public class AccountLogger {
     }
 
     boolean isLoginDataIncorrect() {
-        user = accountMaker.getLoginDetails().get(login);
+        User user = accountMaker.getLoginDetails().get(login);
         try {
-            if (user.getLogin().equals(login) && user.getPassword().equals(password)) {
+            if (user.getPassword().equals(password)) {
                 System.out.println("You've logged in.");
                 return false;
             } else {

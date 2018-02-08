@@ -1,22 +1,23 @@
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class ToDoEngine {
 
-
     private Scanner input = new Scanner(System.in);
     private AccountMaker accountMaker = new AccountMaker();
     private AccountLogger accountLogger = new AccountLogger(accountMaker);
     private boolean loopIsTrue = true;
+    private Tasker tasks = new Tasker();
+    private User user = new User(tasks);
 
-    void startToDoApp() {
-
+    void displayMainMenu() {
         System.out.println("What do you wanna to do?");
         System.out.println("1. Add Account 2. Log into my account");
 
         while (loopIsTrue) {
             try {
-                displayMainMenu(input.nextInt());
+                getOptionsOfMainMenu(input.nextInt());
             } catch (InputMismatchException e) {
                 System.out.println("You've inputed something wrong!");
                 System.out.println("What do you wanna to do?");
@@ -28,7 +29,7 @@ public class ToDoEngine {
         }
     }
 
-    private void displayMainMenu(int option) throws InterruptedException {
+    private void getOptionsOfMainMenu(int option) throws InterruptedException {
         if (option >= 1 && option <= 2) {
             switch (option) {
                 case 1:
@@ -42,6 +43,41 @@ public class ToDoEngine {
                             loopIsTrue = false;
                         }
                     }
+                    break;
+            }
+        }
+    }
+
+    public void displayUserMenu() {
+        loopIsTrue = true;
+        while (loopIsTrue) {
+            System.out.println("What do you wanna to do?");
+            System.out.println("1. Add Task 2. Show my tasks 3. Exit");
+            getOptionsOfUserMenu(input.nextInt());
+        }
+    }
+
+    private void getOptionsOfUserMenu(int option) {
+        if (option >= 1 && option <= 3) {
+            switch (option) {
+                case 1:
+                    System.out.println("Write down your task.\nYour list will be refreshed");
+                    input.nextLine();
+                    String task = input.nextLine();
+                    user.addNewTask(task);
+                    System.out.println("----------------");
+                    System.out.println("YOUR TASK LIST:");
+                    user.showAllTasks();
+                    System.out.println("----------------");
+                    break;
+                case 2:
+                    System.out.println("----------------");
+                    System.out.println("YOUR TASK LIST:");
+                    user.showAllTasks();
+                    System.out.println("----------------");
+                    break;
+                case 3:
+                    loopIsTrue = false;
                     break;
             }
         }
