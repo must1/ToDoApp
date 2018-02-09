@@ -61,14 +61,10 @@ public class ToDoEngine {
         if (option >= 1 && option <= 4) {
             switch (option) {
                 case 1:
-                    System.out.println("Write down your task.\nYour list will be refreshed");
+                    System.out.println("Write down your task.");
                     input.nextLine();
-
                     user.addNewTask(input.nextLine());
-                    System.out.println("----------------");
-                    System.out.println("YOUR TASK LIST:");
-                    user.showAllTasks();
-                    System.out.println("----------------");
+                    System.out.println("Task was added.");
                     break;
                 case 2:
                     System.out.println("----------------");
@@ -77,9 +73,10 @@ public class ToDoEngine {
                     System.out.println("----------------");
                     break;
                 case 3:
-                    System.out.println("Write down your task that you want to delete from task list.\nYour list will be refreshed");
+                    System.out.println("Write down your task that you want to delete from task list.");
                     input.nextLine();
                     user.deleteTask(input.nextLine());
+                    System.out.println("Task was deleted");
                     loopIsTrue = false;
                     break;
                 case 4:
