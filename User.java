@@ -16,6 +16,10 @@ public class User {
         tasker.createTask(task);
     }
 
+    void deleteTask(String task) {
+        tasker.deleteTask(task);
+    }
+
     void showAllTasks() {
         tasker.showAllTasks();
     }

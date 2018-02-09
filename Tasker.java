@@ -9,6 +9,10 @@ public class Tasker {
         listOfTasks.add(task);
     }
 
+    void deleteTask(String task) {
+        listOfTasks.remove(task);
+    }
+
     void showAllTasks() {
         for (String listOfTask : listOfTasks) {
             System.out.println(listOfTask);

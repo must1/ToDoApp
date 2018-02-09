@@ -52,19 +52,19 @@ public class ToDoEngine {
         loopIsTrue = true;
         while (loopIsTrue) {
             System.out.println("What do you wanna to do?");
-            System.out.println("1. Add Task 2. Show my tasks 3. Exit");
+            System.out.println("1. Add task 2. Show my tasks 3. Delete task 4. Exit");
             getOptionsOfUserMenu(input.nextInt());
         }
     }
 
     private void getOptionsOfUserMenu(int option) {
-        if (option >= 1 && option <= 3) {
+        if (option >= 1 && option <= 4) {
             switch (option) {
                 case 1:
                     System.out.println("Write down your task.\nYour list will be refreshed");
                     input.nextLine();
-                    String task = input.nextLine();
-                    user.addNewTask(task);
+
+                    user.addNewTask(input.nextLine());
                     System.out.println("----------------");
                     System.out.println("YOUR TASK LIST:");
                     user.showAllTasks();
@@ -77,6 +77,12 @@ public class ToDoEngine {
                     System.out.println("----------------");
                     break;
                 case 3:
+                    System.out.println("Write down your task that you want to delete from task list.\nYour list will be refreshed");
+                    input.nextLine();
+                    user.deleteTask(input.nextLine());
+                    loopIsTrue = false;
+                    break;
+                case 4:
                     loopIsTrue = false;
                     break;
             }
