@@ -8,7 +8,7 @@ public class Account {
         this.password = password;
     }
 
-    private Account(Tasker tasker) {
+    Account(Tasker tasker) {
         this.tasker = tasker;
     }
 

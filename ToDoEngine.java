@@ -73,7 +73,6 @@ public class ToDoEngine {
                     input.nextLine();
                     account.deleteTask(input.nextLine());
                     System.out.println("Task was deleted");
-                    loopIsTrue = false;
                     break;
                 case 4:
                     loopIsTrue = false;
