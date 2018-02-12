@@ -8,7 +8,7 @@ public class ToDoEngine {
     private AccountLogger accountLogger = new AccountLogger(accountMaker);
     private boolean loopIsTrue = true;
     private String login, password;
-    private Account account = new Account(new Tasker());
+    private Account account = new Account();
 
     private void inputLoginAndPassword() {
         System.out.println("Input your login");
@@ -59,7 +59,7 @@ public class ToDoEngine {
                 case 1:
                     System.out.println("Write down your task.");
                     input.nextLine();
-                    account.addNewTask(input.nextLine());
+                    account.createTask(input.nextLine());
                     System.out.println("Task was added.");
                     break;
                 case 2:
