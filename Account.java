@@ -1,27 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Account {
-    private Tasker tasker;
     private String login;
     private String password;
+    private List<String> listOfTasks = new ArrayList<>();
 
     Account(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    Account(Tasker tasker) {
-        this.tasker = tasker;
+    Account() {
     }
 
-    void addNewTask(String task) {
-        tasker.createTask(task);
+    void createTask(String task) {
+        listOfTasks.add(task);
     }
 
     void deleteTask(String task) {
-        tasker.deleteTask(task);
+        listOfTasks.remove(task);
     }
 
     void showAllTasks() {
-        tasker.showAllTasks();
+        for (String listOfTask : listOfTasks) {
+            System.out.println(listOfTask);
+        }
     }
 
     String getPassword() {
