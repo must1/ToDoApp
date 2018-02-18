@@ -14,12 +14,12 @@ public class Account {
     Account() {
     }
 
-    void createTask(String task) {
-        listOfTasks.add(task);
+    boolean createTask(String task) {
+        return listOfTasks.add(task);
     }
 
-    void deleteTask(String task) {
-        listOfTasks.remove(task);
+    boolean deleteTask(String task) {
+        return listOfTasks.remove(task);
     }
 
     void showAllTasks() {

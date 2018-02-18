@@ -18,7 +18,7 @@ public class ToDoEngine {
         password = input.next();
     }
 
-    private void getOptionsOfMainMenu(int option) {
+    private int getOptionsOfMainMenu(int option) {
         if (option >= 1 && option <= 2) {
             switch (option) {
                 case 1:
@@ -35,6 +35,7 @@ public class ToDoEngine {
                     break;
             }
         }
+        return option;
     }
 
     void displayMainMenu() {
@@ -53,7 +54,7 @@ public class ToDoEngine {
         }
     }
 
-    private void getOptionsOfUserMenu(int option) {
+    private int getOptionsOfUserMenu(int option) {
         if (option >= 1 && option <= 4) {
             switch (option) {
                 case 1:
@@ -79,6 +80,7 @@ public class ToDoEngine {
                     break;
             }
         }
+        return option;
     }
 
     public void displayUserMenu() {
